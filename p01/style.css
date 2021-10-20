@@ -1,0 +1,109 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+/*
+MAIN COLOR: #99e9f2
+GREY COLOR: #343a40
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------ */
+/* GENERAL STYLES */
+/* ------------------------ */
+body {
+  font-family: "Inter", sans-serif;
+  color: #343a40;
+  /*first value is the horizontal offset*/
+  /*second value is the vertical offset*/
+  /*third value is the blur*/
+  /*fourth value is optional and 0px by default, and it is if we want to scale the shadow*/
+  /*fifth value is the color*/
+}
+
+/* HEADER `*/
+
+.nav-custom {
+  background-color: #c5f6fa !important;
+  margin: 12px auto;
+  padding: 30px;
+  box-shadow: 0px 20px 70px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.main-tab:link,
+.main-tab:visited {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #66d9e8;
+  display: inline-block;
+  font-weight: 500;
+  /* border-radius: 300px; if this value is higher than the height, then it will be completely round */
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding: 20px;
+  font-size: 24px;
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: background-color 1s, color 1s, border 1s, box-shadow 1s;
+}
+
+.main-tab:hover {
+  background-color: #e3fafc;
+  color: #22b8cf;
+  border: 1px solid #22b8cf;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.sec-tab:link,
+.sec-tab:visited {
+  color: #22b8cf;
+  text-decoration: none;
+  text-transform: capitalize;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0 25px;
+  transition: color 1s;
+}
+
+.sec-tab:hover {
+  color: #0b7285;
+}
+
+/* CONTENT */
+
+.content {
+  margin-top: 74px;
+}
+
+.header-text {
+  /* 18 / 20 */
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.img-perfil {
+  width: 100%;
+  border-radius: 15px;
+}

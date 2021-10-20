@@ -11,7 +11,7 @@ MAIN COLOR: #99e9f2
 GREY COLOR: #343a40
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
@@ -33,7 +33,6 @@ body {
 }
 
 /* HEADER `*/
-
 .nav-custom {
   background-color: #c5f6fa !important;
   margin: 12px auto;
@@ -93,7 +92,17 @@ body {
 /* CONTENT */
 
 .content {
-  margin-top: 74px;
+  margin-top: 64px;
+}
+
+.header-div {
+  align-self: center;
+}
+
+.header-title {
+  font-size: 62px;
+  text-align: left;
+  margin-bottom: 52px;
 }
 
 .header-text {
@@ -101,6 +110,34 @@ body {
   font-size: 18px;
   line-height: 1.7;
   margin-bottom: 24px;
+  max-width: 60ch;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.header-text span {
+  font-weight: 300;
+}
+
+.btn:link,
+.btn:visited {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #22b8cf;
+  display: inline-block;
+  font-weight: 500;
+  border-radius: 300px; /* if this value is higher than the height, then it will be completely round */
+}
+
+.btn:hover {
+  background-color: #66d9e8;
+}
+
+.btn--big {
+  padding: 16px 32px;
+  font-size: 18px;
 }
 
 .img-perfil {

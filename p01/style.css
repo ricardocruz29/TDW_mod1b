@@ -11,7 +11,7 @@ MAIN COLOR: #99e9f2
 GREY COLOR: #343a40
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap");
 
 * {
   margin: 0;
@@ -34,7 +34,7 @@ body {
 
 /* HEADER `*/
 .nav-custom {
-  background-color: #c5f6fa !important;
+  background: linear-gradient(150deg, #99e9f2, #1098ad, #0b7285);
   margin: 12px auto;
   padding: 30px;
   box-shadow: 0px 20px 70px rgba(0, 0, 0, 0.08);
@@ -50,32 +50,35 @@ body {
 
 .main-tab:link,
 .main-tab:visited {
-  color: #fff;
+  color: #f59f00;
   text-decoration: none;
   text-transform: uppercase;
-  background-color: #66d9e8;
+  background-color: #e3fafc;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 700;
   /* border-radius: 300px; if this value is higher than the height, then it will be completely round */
-  border-top-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   padding: 20px;
   font-size: 24px;
+  letter-spacing: 0.5px;
 
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  transition: background-color 1s, color 1s, border 1s, box-shadow 1s;
+  transition: background-color 1s, color 2s, border 1s, box-shadow 1s,
+    letter-spacing 1s;
 }
 
 .main-tab:hover {
-  background-color: #e3fafc;
-  color: #22b8cf;
-  border: 1px solid #22b8cf;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* background-color: #c5f6fa !important; */
+  color: #f59f00 !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  letter-spacing: -0.5px;
 }
 
 .sec-tab:link,
 .sec-tab:visited {
-  color: #22b8cf;
+  color: #f59f00;
   text-decoration: none;
   text-transform: capitalize;
   display: inline-block;
@@ -86,7 +89,7 @@ body {
 }
 
 .sec-tab:hover {
-  color: #0b7285;
+  color: #ffec99;
 }
 
 /* CONTENT */
@@ -100,9 +103,12 @@ body {
 }
 
 .header-title {
-  font-size: 62px;
+  font-size: 74px;
   text-align: left;
   margin-bottom: 52px;
+  letter-spacing: -6px;
+  font-weight: 500;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header-text {
@@ -114,6 +120,7 @@ body {
   text-align: left;
   font-weight: 500;
   margin-bottom: 32px;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header-text span {

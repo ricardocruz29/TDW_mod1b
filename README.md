@@ -1,4 +1,4 @@
 # TDW_mod1b
 
 Prática 01
-- To open this page, access the link (...)/TDW_mod1b/p01/index.html
+- To access the website developed in p01, https://ricardocruz29.github.io/TDW_mod1b/p01/index.html

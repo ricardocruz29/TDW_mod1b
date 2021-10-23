@@ -105,6 +105,11 @@ body {
   transform: scale(1.1);
 }
 
+.st-active:link,
+.st-active:visited {
+  color: #3bc9db;
+}
+
 /* CONTENT */
 
 .content {
@@ -117,7 +122,7 @@ body {
   margin-bottom: 52px;
   letter-spacing: -6px;
   font-weight: 700;
-  text-shadow: 0px 5px 5px rgba(243, 153, 153, 0.5);
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
 }
 
 .header-text {
@@ -267,4 +272,40 @@ footer span {
 .card img {
   width: 100%;
   height: 175px;
+}
+
+/*PHOTOS*/
+.small-img {
+  width: 100%;
+  height: auto;
+  transition: transform 1s, box-shadow 1s;
+  border-radius: 15px;
+}
+
+.small-img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.08);
+}
+
+.all-images-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.img-grid {
+  --bs-gutter-x: 12px;
+}
+
+.img-grid:not(:first-child) {
+  margin-top: 12px;
+}
+
+.carousel-inner {
+  border-radius: 15px;
+}
+
+.modal-body {
+  padding: 0;
 }

@@ -25,6 +25,7 @@ GREY COLOR: #343a40
 body {
   font-family: "Inter", sans-serif;
   color: #343a40;
+  border-bottom: 5px solid #22b8cf;
   /*first value is the horizontal offset*/
   /*second value is the vertical offset*/
   /*third value is the blur*/
@@ -50,7 +51,7 @@ body {
 
 .main-tab:link,
 .main-tab:visited {
-  color: #f59f00;
+  color: #343a40;
   text-decoration: none;
   text-transform: uppercase;
   background-color: #e3fafc;
@@ -70,7 +71,7 @@ body {
 
 .main-tab:hover {
   /* background-color: #c5f6fa !important; */
-  color: #f59f00 !important;
+  color: #343a40 !important;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   letter-spacing: -0.5px;
@@ -78,28 +79,25 @@ body {
 
 .sec-tab:link,
 .sec-tab:visited {
-  color: #f59f00;
+  color: #f8f9fa;
   text-decoration: none;
   text-transform: capitalize;
   display: inline-block;
   font-weight: 700;
   font-size: 20px;
   margin: 0 25px;
-  transition: color 1s;
+  transition: color 1s, transform 0.5s;
 }
 
 .sec-tab:hover {
-  color: #ffec99;
+  color: #ced4da;
+  transform: scale(1.1);
 }
 
 /* CONTENT */
 
 .content {
-  margin-top: 64px;
-}
-
-.header-div {
-  align-self: center;
+  margin-top: 96px;
 }
 
 .header-title {
@@ -107,7 +105,7 @@ body {
   text-align: left;
   margin-bottom: 52px;
   letter-spacing: -6px;
-  font-weight: 500;
+  font-weight: 700;
   text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -129,7 +127,7 @@ body {
 
 .btn:link,
 .btn:visited {
-  color: #fff;
+  color: #f8f9fa;
   text-decoration: none;
   text-transform: uppercase;
   background-color: #22b8cf;
@@ -150,4 +148,68 @@ body {
 .img-perfil {
   width: 100%;
   border-radius: 15px;
+}
+
+/* Biography area */
+.biography-div {
+  margin-top: 80px;
+}
+
+.biography-div h2 {
+  font-size: 36px;
+  font-weight: 700;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 48px;
+}
+
+.biography-div h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.biography-div p {
+  max-width: 20ch;
+  line-height: 1.7;
+}
+
+.bio-icon {
+  width: 44px;
+  height: auto;
+  margin-bottom: 24px;
+  fill: #c5f6fa;
+  background-color: #22b8cf;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+/*Academi*/
+.academic-title {
+  font-size: 36px;
+  font-weight: 700;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 48px;
+  margin-top: 48px;
+}
+
+.table-responsive {
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+/*Footer*/
+footer {
+  /* 10 / 12 / 14 */
+  font-size: 14px;
+  margin: 80px 0 32px 0;
+  color: #495057;
+  text-align: center;
+}
+
+footer span {
+  font-weight: 500;
 }

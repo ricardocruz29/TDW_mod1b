@@ -26,6 +26,7 @@ body {
   font-family: "Inter", sans-serif;
   color: #343a40;
   border-bottom: 5px solid #22b8cf;
+  min-height: calc(100vh - 12px); /*12px is the margin top of navbar*/
   /*first value is the horizontal offset*/
   /*second value is the vertical offset*/
   /*third value is the blur*/
@@ -33,16 +34,26 @@ body {
   /*fifth value is the color*/
 }
 
+.global {
+  position: relative;
+}
+
 /* HEADER `*/
 .nav-custom {
   background: linear-gradient(150deg, #99e9f2, #1098ad, #0b7285);
   margin: 12px auto;
-  padding: 30px;
+  padding: 15px;
   box-shadow: 0px 20px 70px rgba(0, 0, 0, 0.08);
   border-radius: 12px;
 
   display: flex;
   justify-content: space-between;
+}
+
+.nav-custom-scrolled {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .navbar-collapse {
@@ -60,7 +71,7 @@ body {
   /* border-radius: 300px; if this value is higher than the height, then it will be completely round */
   border-top-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  padding: 20px;
+  padding: 15px;
   font-size: 24px;
   letter-spacing: 0.5px;
 
@@ -106,7 +117,7 @@ body {
   margin-bottom: 52px;
   letter-spacing: -6px;
   font-weight: 700;
-  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  text-shadow: 0px 5px 5px rgba(243, 153, 153, 0.5);
 }
 
 .header-text {
@@ -118,7 +129,7 @@ body {
   text-align: left;
   font-weight: 500;
   margin-bottom: 32px;
-  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
 }
 
 .header-text span {
@@ -158,7 +169,7 @@ body {
 .biography-div h2 {
   font-size: 36px;
   font-weight: 700;
-  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
   margin-bottom: 48px;
 }
 
@@ -187,7 +198,7 @@ body {
 .academic-title {
   font-size: 36px;
   font-weight: 700;
-  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
   margin-bottom: 48px;
   margin-top: 48px;
 }
@@ -212,4 +223,48 @@ footer {
 
 footer span {
   font-weight: 500;
+}
+
+/*LINKS*/
+.btn-social:link,
+.btn-social:visited {
+  margin: 0 auto;
+  display: block;
+  width: 70%;
+  min-width: 95px;
+}
+
+.c-instagram:link,
+.c-instagram:visited {
+  background-color: #ff6b6b;
+}
+
+.c-facebook:link,
+.c-facebook:visited {
+  background-color: #339af0;
+}
+
+.c-twitter:link,
+.c-twitter:visited {
+  background-color: #74c0fc;
+}
+
+.c-github:link,
+.c-github:visited {
+  background-color: #495057;
+}
+
+.c-linkedin:link,
+.c-linkedin:visited {
+  background-color: #1864ab;
+}
+
+.card {
+  border: 0 !important;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card img {
+  width: 100%;
+  height: 175px;
 }

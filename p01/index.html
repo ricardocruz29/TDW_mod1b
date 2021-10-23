@@ -13,13 +13,20 @@
       crossorigin="anonymous"
     />
     <link href="./style.css" rel="stylesheet" />
-
     <title>Ricardo Cruz</title>
   </head>
   <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light nav-custom">
-        <a class="navbar-brand main-tab" href="01.html">Biography</a>
+    <div class="container global">
+      <nav
+        class="
+          navbar
+          sticky-top
+          navbar-expand-lg navbar-light
+          bg-light
+          nav-custom
+        "
+      >
+        <a class="navbar-brand main-tab" href="./index.html">Biography</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -35,10 +42,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="sec-tab" href="links.html#">Links</a>
+              <a class="sec-tab" href="./links.html">Links</a>
             </li>
             <li class="nav-item">
-              <a class="sec-tab" href="fotos.html">Photos</a>
+              <a class="sec-tab" href="./fotos.html">Photos</a>
             </li>
           </ul>
         </div>
@@ -195,6 +202,18 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(window).scroll(function () {
+          if ($(document).scrollTop() > 20) {
+            $("nav").addClass("nav-custom-scrolled");
+          } else {
+            $("nav").removeClass("nav-custom-scrolled");
+          }
+        });
+      });
+    </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

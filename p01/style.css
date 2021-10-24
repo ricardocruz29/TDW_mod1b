@@ -296,10 +296,7 @@ footer span {
 
 .img-grid {
   --bs-gutter-x: 12px;
-}
-
-.img-grid:not(:first-child) {
-  margin-top: 12px;
+  --bs-gutter-y: 12px;
 }
 
 .carousel-inner {

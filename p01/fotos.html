@@ -225,7 +225,7 @@
 
         for (let i = 0; i < data.length; i++) {
           /*All Images Section */
-          var img_element = document.createElement("img");
+          let img_element = document.createElement("img");
           img_element.classList.add("small-img");
           img_element.id = data[i].photo_id;
           img_element.src = data[i].path;
@@ -234,7 +234,7 @@
           img_element.setAttribute("data-bs-toggle", "modal");
           img_element.setAttribute("data-bs-target", "#exampleModal");
 
-          var col_element = document.createElement("div");
+          let col_element = document.createElement("div");
           col_element.classList.add("col-4");
 
           col_element.appendChild(img_element);
@@ -243,7 +243,7 @@
           /*Carousel Section*/
 
           /*Carousel Indicators */
-          var button_element = document.createElement("button");
+          let button_element = document.createElement("button");
           button_element.type = "button";
           button_element.setAttribute(
             "data-bs-target",
@@ -264,13 +264,13 @@
             .appendChild(button_element);
 
           /*Carousel Images */
-          var img_carousel_element = document.createElement("img");
+          let img_carousel_element = document.createElement("img");
           img_carousel_element.src = data[i].path;
           img_carousel_element.classList.add("d-block");
           img_carousel_element.classList.add("w-100");
           img_carousel_element.alt = data[i].alt;
 
-          var carousel_item_element = document.createElement("div");
+          let carousel_item_element = document.createElement("div");
           carousel_item_element.classList.add("carousel-item");
           if (i == 0) {
             carousel_item_element.classList.add("active");
@@ -284,7 +284,7 @@
 
       function loadImage() {
         window.onclick = (e) => {
-          var photoId = e.target.id;
+          let photoId = e.target.id;
           modalImg = document.getElementById("modal-img");
           modalImg.src = "./img/" + photoId + ".jpg";
           modalImg.style.width = "100%";

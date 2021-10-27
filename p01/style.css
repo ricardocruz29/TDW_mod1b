@@ -27,6 +27,7 @@ body {
   color: #343a40;
   border-bottom: 5px solid #22b8cf;
   min-height: calc(100vh - 12px); /*12px is the margin top of navbar*/
+  min-width: 350px;
   /*first value is the horizontal offset*/
   /*second value is the vertical offset*/
   /*third value is the blur*/
@@ -305,4 +306,22 @@ footer span {
 
 .modal-body {
   padding: 0;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+  .btn:link,
+  .brn:visited {
+    display: block;
+    margin: 0 auto 36px auto;
+    width: 170px;
+  }
 }

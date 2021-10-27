@@ -37,21 +37,23 @@
     ></script>
     <script>
       function main() {
-        const hs_div = document.getElementById("hs");
-        for (let i = 1; i <= 100; i++) {
-          if (checkPair(i)) {
-            hs.innerHTML += "<h2 class='text-success'>" + i + "</h2>";
-          } else {
-            hs.innerHTML += "<h2 class='text-danger'>" + i + "</h2>";
-          }
-        }
-      }
+        const hs = document.getElementById("hs");
+        let total = 100;
 
-      function checkPair(num) {
-        if (num % 2 == 0) {
-          return true;
-        } else;
-        return false;
+        // for (let i = 1; i <= total; i++) {
+        //   hs.innerHTML += "<h1>" + "Hello World " + i + "</h1>";
+        // }
+
+        let estilo;
+        for (let i = 1; i <= total; i++) {
+          if (i % 2 == 0) {
+            estilo = "text-success";
+          } else {
+            estilo = "text-danger";
+          }
+          hs.innerHTML +=
+            "<h1 class='" + estilo + "'>" + "Hello World " + i + "</h1>";
+        }
       }
     </script>
   </body>

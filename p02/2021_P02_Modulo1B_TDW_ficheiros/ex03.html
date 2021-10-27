@@ -23,6 +23,14 @@
   <div class="container">
     <div id="cards" class="row mt-3">
       <!-- Content goes here -->
+      <!-- Card example to delete -->
+      <div class="col-md-3 mb-3">
+        <div class="card bg-info">
+          <div class="card-body">
+            Cartão de exemplo
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   </div>
@@ -33,52 +41,7 @@
     crossorigin="anonymous"></script>
   <script>
     function main() {
-      const totalCards = 100;
-      const divisor = 4;
-      let estilo = "";
-      let resto;
-      const cards = document.getElementById('cards');
-      let htmlBlock = "";
 
-      for (let i = 1; i <= totalCards; i++) {
-        resto = i % divisor;
-        switch (resto) {
-          case 0:
-            estilo = "bg-success";
-            break;
-          case 1:
-            estilo = "bg-danger";
-            break;
-          case 2:
-            estilo = "bg-info";
-            break;
-          case 3:
-            estilo = "bg-primary";
-            break;
-        }
-        /*         cards.innerHTML +=
-                  '<div class="col-md-3 mb-3">' +
-                  '<div class="card ' +
-                  estilo +
-                  '">' +
-                  '<div class="card-body">' +
-                  i +
-                  '</div>' +
-                  '</div>' +
-                  '</div>'; */
-        htmlBlock +=
-          '<div class="col-md-3 mb-3">' +
-          '<div class="card ' +
-          estilo +
-          '">' +
-          '<div class="card-body">' +
-          i +
-          '</div>' +
-          '</div>' +
-          '</div>';
-      }
-      //console.log(htmlBlock);
-      cards.innerHTML = htmlBlock;
     };
   </script>
 </body>

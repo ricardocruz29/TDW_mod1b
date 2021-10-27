@@ -23,14 +23,6 @@
   <div class="container">
     <div id="cards" class="row mt-3">
       <!-- Content goes here -->
-      <!-- Card example to delete -->
-      <div class="col-md-3 mb-3">
-        <div class="card bg-info">
-          <div class="card-body">
-            Cartão de exemplo
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   </div>
@@ -41,8 +33,54 @@
     crossorigin="anonymous"></script>
   <script>
     function main() {
+      const cards_section = document.getElementById("cards");
+      for (let i=1; i <= 100; i++){
+        cards_section.innerHTML += attributeClass(i);
+      }
 
-    };
+    }
+
+    function attributeClass(num){
+      let html;
+      let resto = num % 4;
+      switch(num%4){
+        case 0:
+          html = "<div class=\"col-md-3 mb-3\">" +
+                 "<div class=\"card-body bg-success\">" + num +
+                 "</div>" + 
+                 "</div>" 
+          return html;
+          
+        case 1:
+          html = "<div class=\"col-md-3 mb-3\">" +
+                 "<div class=\"card-body bg-danger\">" + num +
+                 "</div>" + 
+                 "</div>"  
+          return html;
+          
+        case 2:
+          html = "<div class=\"col-md-3 mb-3\">" +
+                 "<div class=\"card-body bg-info\">" + num +
+                 "</div>" + 
+                 "</div>" 
+          return html;
+          
+        case 3:
+          html = "<div class=\"col-md-3 mb-3\">" +
+                 "<div class=\"card-body bg-primary\">" + num +
+                 "</div>" + 
+                 "</div>" 
+          return html;
+          
+        default:
+          html = "<div class=\"col-md-3 mb-3\">" +
+                 "<div class=\"card-body bg-info\">" + "Cartão Exemplo" +
+                 "</div>" + 
+                 "</div>"  
+          return html;
+          break;
+      }
+    }
   </script>
 </body>
 

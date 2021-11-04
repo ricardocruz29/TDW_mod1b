@@ -12,8 +12,8 @@
 
 ## Prática 02_TPC
 
-- To access the fourth exercise of p02 (TPC), https://ricardocruz29.github.io/TDW_mod1b/p02_TPC/ex04.html
-- To access the fifth exercise of p02 (TPC), https://ricardocruz29.github.io/TDW_mod1b/p02_TPC/ex05.html
+- To access the fourth exercise of p02 (TPC), https://ricardocruz29.github.io/TDW_mod1b/p02TPC/ex04.html
+- To access the fifth exercise of p02 (TPC), https://ricardocruz29.github.io/TDW_mod1b/p02TPC/ex05.html
 
 ## Prática 03
 

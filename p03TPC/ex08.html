@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>TDW P03_TPC - Adivinha o número</title>
+</head>
+
+<body onload="main()">
+  <div class="bg-light pt-3 pb-3">
+    <div class="container">
+      <h1 class="display-4">Adivinha o número</h1>
+      <p class="lead">O número de tentativas está sempre a contar</p>
+      <h4 id="tentativas-restantes">Tentativas restantes: </h4>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <input id="number" class="form-control" type="text" placeholder="Qual é o número?" mb-3>
+      </div>
+      <div class="col">
+        <button id="play" type="submit" class="btn btn-primary">Testar</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" id="feedback_area">
+        <h2 id="feedback">
+          <!-- Feedback goes here -->
+        </h2>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script>
+    function main() {
+      // Gera número aleatório
+      var n_tries = 0;
+      var max_tries = 5;
+
+      const try_area = document.getElementById("tentativas-restantes");
+      for (let i=0; i<max_tries; i++){
+        let span_try = document.createElement("span");
+        span_try.textContent = "X";
+        span_try.style.marginRight = "5px";
+        try_area.appendChild(span_try)
+      }
+
+      var nrMin = 1;
+      var nrMax = 20;
+      var random = Math.floor(Math.random() * (nrMax - nrMin)) + nrMin;
+      console.log(random);
+
+      const btn_play = document.getElementById("play");
+      const feedback_h2 = document.getElementById("feedback");
+      const number_area = document.getElementById("number"); 
+
+      btn_play.addEventListener("click", getFeedback);
+      number_area.addEventListener("keypress", function(event){
+        if (event.charCode === 13){
+          getFeedback();
+        }
+      });
+
+      var feedback;
+      function getFeedback(){
+        console.log(number_area.value);
+        const number = parseInt(number_area.value);
+        if (number_area.value == "" || isNaN(number) || number < 0 || number > 100){
+          addError();
+        } else {
+          n_tries++;
+    
+          if (number === random){
+            feedback = "Parabéns, você acertou no número. \n Precisou de " + n_tries + " tentativas!";
+            renderPlayAgain();
+          } else {
+            feedback = "Número errado";
+            max_tries--;
+            if (max_tries === 0){
+              feedback = "Perdeu!"
+              renderPlayAgain();
+            }
+            try_area.lastChild.remove();
+          }
+        }
+
+        feedback_h2.textContent = feedback;
+      }
+
+      function renderPlayAgain(){
+        var btn_play_again = document.createElement("button");
+        number_area.disabled = true;
+        btn_play_again.className = "btn btn-primary";
+        btn_play_again.textContent = "Jogar Novamente!"
+        btn_play_again.type = "button";
+        btn_play_again.addEventListener("click", function(){
+          feedback_h2.textContent = "";
+          number_area.value = "";
+          btn_play_again.remove();
+          number_area.disabled = false;
+          var child = try_area.lastElementChild; 
+          while (child) {
+              try_area.removeChild(child);
+              child = try_area.lastElementChild;
+          }
+          clearError();
+          main();
+        })
+
+        const feedback_area = document.getElementById("feedback_area");
+        feedback_area.appendChild(btn_play_again);
+      }
+
+      
+      number_area.addEventListener("focus", function(){
+        feedback_h2.textContent = "";
+        clearError();
+      });
+
+      function addError(){
+        console.log("entrei");
+        number_area.value = "";
+        number_area.style.border = "2px solid red";
+        number_area.placeholder = "Inserir número [0 a 100]"
+        feedback = "Inserir número [0 a 100] !!"
+      }
+
+      function clearError(){
+        number_area.value = "";
+        number_area.style.border = "1px solid grey";
+        number_area.placeholder = "Qual é o número?";
+      }
+    };
+  </script>
+</body>
+
+</html>

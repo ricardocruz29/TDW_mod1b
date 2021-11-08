@@ -90,7 +90,7 @@
         card_div.style.backgroundColor = "#f8f9fa";
         card_div.style.position = "relative";
 
-        card_div.addEventListener("mouseover", function () {
+        card_div.addEventListener("mouseenter", function () {
           card_div.style.backgroundColor = "#fff5f5";
           card_div.style.cursor = "pointer";
           var delete_card_btn = document.createElement("button");
@@ -109,7 +109,7 @@
           card_div.appendChild(delete_card_btn);
         });
 
-        card_div.addEventListener("mouseout", function () {
+        card_div.addEventListener("mouseleave", function () {
           card_div.style.padding = "0";
           card_div.style.backgroundColor = "#f8f9fa";
           console.log("entrei");

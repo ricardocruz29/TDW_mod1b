@@ -17,9 +17,13 @@
 
 ## Prática 03
 
-- To access the first exercise of p03, https://ricardocruz29.github.io/TDW_mod1b/p03/ex06.html
+- To access the first exercise of p03, https://ricardocruz29.github.io/TDW_mod1b/p03/index.html
 
 ## Prática 03_TPC
 
 - To access the second exercise of p03 (TPC), https://ricardocruz29.github.io/TDW_mod1b/p03TPC/ex07.html
 - To access the third exercise of p03 (TPC), https://ricardocruz29.github.io/TDW_mod1b/p03TPC/ex08.html
+
+## Prática 04
+
+- To access the first exercise of p04, https://ricardocruz29.github.io/TDW_mod1b/p04/index.html

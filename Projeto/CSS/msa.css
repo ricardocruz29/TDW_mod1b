@@ -1,0 +1,129 @@
+.main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+}
+
+main {
+  grid-row: 2 / -1;
+}
+
+/* MOVIE PAGE */
+
+.movie-info-area {
+  width: 85%;
+  margin: 48px auto 0px auto;
+  border-radius: 45px;
+
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 64px;
+}
+
+.banner-img {
+  width: 100%;
+  min-width: 350px;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.movie-name-header {
+  color: #fff;
+  font-size: 62px;
+  font-weight: 900;
+  font-family: "Lato", sans-serif;
+  letter-spacing: -2px;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 48px;
+}
+
+.movie-description {
+  color: #868e96;
+  max-width: 60ch;
+  line-height: 1.4;
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+
+.genres {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.genres p {
+  color: #fff;
+  background-color: #495057;
+  padding: 8px 12px;
+  border-radius: 12px;
+  filter: brightness(70%);
+  cursor: default;
+  margin-bottom: 0;
+  font-size: 10px;
+}
+
+.keywords {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.keywords p {
+  padding: 0px 12px;
+  border-left: 3px solid #495057;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin: 0px;
+}
+
+.rating-logo {
+  width: 24px;
+  height: auto;
+  fill: #f59f00;
+}
+
+.keywords i {
+  padding: 0px 12px;
+  font-weight: 700;
+  color: #868e96;
+}
+
+.year_and_time {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.movie-year-time {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.clock-icon {
+  width: 24px;
+  height: auto;
+  fill: #a4161a;
+}
+
+.watch-trailer {
+  padding: 8px 12px;
+  border: none;
+  background-color: #a4161a;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0px 0px 10px rgb(255, 107, 107, 0.2);
+}
+
+.watch-trailer:hover {
+  filter: brightness(120%);
+  box-shadow: 0px 0px 10px rgb(255, 107, 107, 0.51);
+}

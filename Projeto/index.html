@@ -12,143 +12,207 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link href="style.css" rel="stylesheet" />
 
-    <title>Hello, world!</title>
+    <!-- MY CSS -->
+    <link href="./CSS/style.css" rel="stylesheet" />
+    <link href="CSS/menu.css" rel="stylesheet" />
+    <link href="CSS/index.css" rel="stylesheet" />
+
+    <title>CeMovies</title>
   </head>
-  <body onload="main()" id="body">
+  <body onload="main('home')">
     <!-- <input type="text" placeholder="nome do filme" id="input_test" />
     <button type="button" id="button_test">Test</button> -->
-    <div class="main">
-      <nav>
-        <div class="sidemenu">
-          <div class="logo">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="logo-img"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <div class="main" id="body">
+      <!-- GENERATED AUTOMATICALLY IN FILE renderMenu.js
+        <nav>
+        </nav>
+      -->
+      <main>
+        <div class="carousel-area">
+          <h1>Recommended Movies</h1>
+          <div
+            id="carouselExampleCaptions"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="4"
+                aria-label="Slide 5"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  class="d-block w-100"
+                  src="IMG/blackwidow.jpg"
+                  alt="Blackwidow Wallpaper"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h2>BLACKWIDOW</h2>
+                  <p class="movie-description">
+                    Natasha Romanoff confronts the darker parts of her ledger
+                    when a dangerous conspiracy with ties to her past arises.
+                  </p>
+                  <a href="moviePage.html?id=tt3480822" class="btn-more-info"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="IMG/6underground.jpg"
+                  alt="6 Underground Wallpaper"
+                  class="d-block w-100"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h2>6 UNDERGROUND</h2>
+                  <p class="movie-description">
+                    Six individuals from all around the globe, each the very
+                    best at what they do, have been chosen not only for their
+                    skill, but for a unique desire to delete their pasts to
+                    change the future.
+                  </p>
+                  <a class="btn-more-info" href="./moviePage.html?id=tt8106534"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-100"
+                  src="IMG/baywatch.jpg"
+                  alt="Baywatch Wallpaper"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h2>BAYWATCH</h2>
+                  <p class="movie-description">
+                    Devoted lifeguard Mitch Buchannon butts heads with a brash
+                    new recruit, as they uncover a criminal plot that threatens
+                    the future of the bay.
+                  </p>
+                  <a class="btn-more-info" href="./moviePage.html?id=tt1469304"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-100"
+                  src="IMG/deadpool.jpg"
+                  alt="Deadpool Wallpaper"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h2>DEADPOOL</h2>
+                  <p class="movie-description">
+                    A wisecracking mercenary gets experimented on and becomes
+                    immortal but ugly, and sets out to track down the man who
+                    ruined his looks.
+                  </p>
+                  <a class="btn-more-info" href="./moviePage.html?id=tt1431045"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-100"
+                  src="IMG/joker.jpg"
+                  alt="Joker Wallpaper"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h2>JOKER</h2>
+                  <p class="movie-description">
+                    In Gotham City, mentally troubled comedian Arthur Fleck is
+                    disregarded and mistreated by society. He then embarks on a
+                    downward spiral of revolution and bloody crime.
+                  </p>
+                  <a class="btn-more-info" href="./moviePage.html?id=tt7286456"
+                    >More Info</a
+                  >
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="prev"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
-              />
-            </svg>
-
-            <p class="logo-name">HiMovies</p>
-          </div>
-          <div class="menu">
-            <p class="sub-menu-title">MENU</p>
-            <ul>
-              <li class="menu-option option--active">
+              <span aria-hidden="true" class="span-icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-                  />
-                </svg>
-                Home
-              </li>
-              <li class="menu-option">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"
-                  />
-                </svg>
-                Movies
-              </li>
-              <li class="menu-option">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
+                  class="next-previous-icon"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
                   <path
                     fill-rule="evenodd"
-                    d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z"
+                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
                     clip-rule="evenodd"
                   />
-                  <path
-                    d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z"
-                  />
                 </svg>
-                Series
-              </li>
-              <li class="menu-option">
-                <svg
+              </span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide="next"
+            >
+              <span aria-hidden="true" class="span-icon"
+                ><svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
-                  />
-                </svg>
-                Artists
-              </li>
-            </ul>
-          </div>
-          <div class="general">
-            <p class="sub-menu-title">GENERAL</p>
-            <ul>
-              <li class="menu-option">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
+                  class="next-previous-icon"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
                   <path
                     fill-rule="evenodd"
-                    d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                     clip-rule="evenodd"
                   />
                 </svg>
-                Settings
-              </li>
-              <li class="menu-option">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                About Us
-              </li>
-            </ul>
+              </span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
-      </nav>
-      <main>
-        <menu>
-          <button>Movies</button>
-          <button>Series</button>
-          <button>Artists</button>
-        </menu>
       </main>
       <aside>Additional info</aside>
     </div>
 
+    <!-- BOOTSTRAP -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -156,6 +220,8 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="script.js" lang="javascript"></script>
+    <!-- MY JS -->
+    <script src="./JS/renderMenu.js"></script>
+    <script src="./JS/script.js" lang="javascript"></script>
   </body>
 </html>

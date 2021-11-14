@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap");
+
 .main {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -28,56 +30,12 @@ main {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.movie-name-header {
-  color: #fff;
-  font-size: 62px;
-  font-weight: 900;
-  font-family: "Lato", sans-serif;
-  letter-spacing: -2px;
-  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-  margin-bottom: 48px;
-}
-
-.movie-description {
-  color: #868e96;
-  max-width: 60ch;
-  line-height: 1.4;
-  margin-bottom: 48px;
-  font-weight: 500;
-}
-
-.genres {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.genres p {
-  color: #fff;
-  background-color: #495057;
-  padding: 8px 12px;
-  border-radius: 12px;
-  filter: brightness(70%);
-  cursor: default;
-  margin-bottom: 0;
-  font-size: 10px;
-}
-
-.keywords {
+.rating-div {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 18px;
   flex-wrap: wrap;
-}
-
-.keywords p {
-  padding: 0px 12px;
-  border-left: 3px solid #495057;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 10px;
-  margin: 0px;
 }
 
 .rating-logo {
@@ -86,10 +44,20 @@ main {
   fill: #f59f00;
 }
 
-.keywords i {
+.rating-div i {
   padding: 0px 12px;
   font-weight: 700;
-  color: #868e96;
+  color: #fff;
+}
+
+.movie-name-header {
+  color: #fff;
+  font-size: 62px;
+  font-weight: 900;
+  font-family: "Lato", sans-serif;
+  letter-spacing: -2px;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 48px;
 }
 
 .year_and_time {
@@ -112,6 +80,31 @@ main {
   fill: #a4161a;
 }
 
+.genres {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.genres p {
+  color: #fff;
+  background-color: #495057;
+  padding: 8px 12px;
+  border-radius: 12px;
+  filter: brightness(70%);
+  cursor: default;
+  margin-bottom: 0;
+  font-size: 10px;
+}
+
+.movie-description {
+  color: #868e96;
+  max-width: 60ch;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
 .watch-trailer {
   padding: 8px 12px;
   border: none;
@@ -121,9 +114,114 @@ main {
   border-radius: 8px;
   font-size: 16px;
   box-shadow: 0px 0px 10px rgb(255, 107, 107, 0.2);
+  margin-bottom: 64px;
 }
 
 .watch-trailer:hover {
   filter: brightness(120%);
   box-shadow: 0px 0px 10px rgb(255, 107, 107, 0.51);
 }
+
+.video-frame {
+  width: 100%;
+  height: 70vh;
+}
+
+.cast {
+  margin-bottom: 48px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cast h6 {
+  margin-bottom: 0;
+}
+
+.a_actor {
+  font-size: 10px;
+  color: #868e96;
+}
+
+.a_actor:hover {
+  color: #868e96;
+  filter: brightness(120%);
+}
+
+.popover-custom {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.popover-custom img {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  /* the begggining of the image is in the center, and then it has all the entire width, so we need
+  to substract half of it so it is centered*/
+  transform: translate(-50%, 0);
+  width: 48px;
+  height: auto;
+  opacity: 0;
+  transition: 0.5s opacity;
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.popover-custom:hover img {
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: transparent;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.similar-movies h5 {
+  font-weight: 600;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.similar-movies span {
+  color: #a4161a;
+}
+
+.flex-similar-movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.similar-movie-div {
+  background-size: cover;
+  width: 15%;
+  height: 175px;
+  display: flex;
+  position: relative;
+  filter: brightness(70%);
+}
+
+.similar-movie-div:hover {
+  cursor: pointer;
+  filter: brightness(100%);
+}
+
+.smovie-more-info {
+  color: #fff;
+  font-weight: 900;
+  left: 50%;
+  top: 50%;
+  font-size: 16px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+/* ---------------------------------------------------------------------- */

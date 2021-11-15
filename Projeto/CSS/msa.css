@@ -375,23 +375,24 @@ main {
   font-size: 18px;
   text-decoration: none;
   color: #fff;
-  height: 36px;
-  width: 36px;
+  height: 42px;
+  width: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-weight: 700;
 }
 
 .pag-number:hover,
 .pag-number.number-active {
   background-color: #a4161a;
   color: #fff;
-  font-weight: 500;
 }
 
 .etc {
   font-size: 20px;
   color: #868e96;
+  margin-bottom: 0;
 }

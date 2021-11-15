@@ -11,6 +11,18 @@ function main(page) {
       loadRecommendedMovies();
       getUpcomingMovies();
       break;
+
+    case "movies":
+      //ANY FUNCTION CALLED HERE, IS DEFINED IN movie.js
+      //on the load of the page, it will be page 1, so if nothig is passed to the function, it will retreive the first page as default
+      //in this function, the whole paginator is going to be generated as well
+      getMovies();
+
+      const filters_form = document.getElementById("filters-form");
+      filters_form.addEventListener("submit", getMovies);
+
+      break;
+
     case "moviespage":
       //ANY FUNCTION CALLED HERE, IS DEFINED IN moviePage.js
 

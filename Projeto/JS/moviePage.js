@@ -121,14 +121,9 @@ function renderSimilarMovies(data) {
     similar_movie.id = "smovie-" + data.results[i].id;
 
     //add event listener when hover, appears info
-    similar_movie.addEventListener("mouseenter", getMovieInfo);
+    similar_movie.addEventListener("mouseenter", addOverlay);
     //add event listener when leaves, deletes info
-    similar_movie.addEventListener("mouseleave", () => {
-      let similar_movie_more_info = document.getElementById(
-        "smovie-more-info-" + data.results[i].id
-      );
-      similar_movie_more_info.remove();
-    });
+    similar_movie.addEventListener("mouseleave", removeOverlay);
     //add event listener when clicked, redirects to page
     similar_movie.addEventListener("click", () => {
       location.href = "./moviePage.html?id=" + data.results[i].id;
@@ -139,13 +134,21 @@ function renderSimilarMovies(data) {
 }
 
 //FUNCTION THAT ADDS MOVIE INFO ON SIMILAR MOVIES
-function addOverlay(data) {
-  const similar_movie = document.getElementById("smovie-" + data.id);
+function addOverlay() {
+  const similar_movie = document.getElementById(this.id);
 
   let p_center = document.createElement("p");
   p_center.textContent = "More Details";
   p_center.className = "smovie-more-info";
-  p_center.id = "smovie-more-info-" + data.id;
+  p_center.id = "smovie-more-info-" + this.id.split("-")[1];
 
   similar_movie.append(p_center);
+}
+
+//FUNCTION THAT ADDS MOVIE INFO ON SIMILAR MOVIES
+function removeOverlay() {
+  let similar_movie_more_info = document.getElementById(
+    "smovie-more-info-" + this.id.split("-")[1]
+  );
+  similar_movie_more_info.remove();
 }

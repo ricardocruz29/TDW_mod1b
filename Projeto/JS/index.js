@@ -96,33 +96,49 @@ function loadRecommendedMovies() {
   }
 }
 
-//This and the one in moviePage can be collapsed into one, with identifiers of what to do
+/*Function that renders upcoming movies
+This function is being called in a for loop in APIfetch.js, being called 3 times (number of movies I want to appear)*/
 function renderUpcomingMovies(data) {
-  // console.log(data);
   const upcoming_movies_div = document.getElementById("upcoming-movies");
 
+  //Create movie div
   let movie_div = document.createElement("div");
   movie_div.className = "up-movie";
 
+  /*add banner img to movie_div*/
   let small_img = document.createElement("img");
   small_img.className = "upcoming-img";
   small_img.src = BASE_IMG_URL + data.poster_path;
   small_img.alt = data.title + " banner";
+  /*redirect to movie page when clicking on image */
+  small_img.addEventListener("click", () => {
+    location.href = "moviePage.html?id=" + data.id;
+  });
 
+  /*add movie_name to movie_div*/
   let movie_name = document.createElement("h2");
   movie_name.className = "upcoming-movie-name";
   movie_name.textContent = data.title;
 
+  /*add release_date to movie_div*/
+  let movie_release_date = document.createElement("p");
+  movie_release_date.className = "upcoming-movie-rd";
+  movie_release_date.textContent = data.release_date;
+
+  /*add button that redirects to movie page, to movie_div*/
   let movie_link = document.createElement("a");
   movie_link.className = "btn-more-info btn-small";
   movie_link.href = "moviePage.html?id=" + data.id;
   movie_link.textContent = "More Info";
 
+  /*contains all movie info except the image, and wraps it into movie_div*/
   let wrapper_content = document.createElement("div");
+  wrapper_content.className = "wrapper-upcoming";
   wrapper_content.append(movie_name);
+  wrapper_content.append(movie_release_date);
   wrapper_content.append(movie_link);
 
   movie_div.append(small_img);
   movie_div.append(wrapper_content);
-  upcoming_movies_div.append(movie_div);
+  upcoming_movies_div.prepend(movie_div);
 }

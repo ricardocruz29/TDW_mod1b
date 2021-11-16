@@ -1,13 +1,12 @@
-// the function receives the current page
+//function that is called on the load of the body, and receives the current page
 function main(page) {
-  //render the menu, and pass the current page, so it knows which tab is active
+  //Menu appears in all pages, so we render it, and pass the current page, so it know which tab is active
   renderMenu(page);
 
   //switch with all pages
   switch (page) {
     case "home":
       //ANY FUNCTION CALLED HERE, IS DEFINED IN index.js
-
       loadRecommendedMovies();
       getUpcomingMovies();
       break;
@@ -17,13 +16,17 @@ function main(page) {
       //on the load of the page, it will be page 1, so if nothig is passed to the function, it will retreive the first page as default
       //in this function, the whole paginator is going to be generated as well
       clearFilters();
-      getMovies();
+      //This function should receive the argument page as well, but if nothing is passed, the default is page = 1
+      getMovies("all");
 
+      //Add event listeners to the input where the user can write a name of movie to search
       addSearchFilterEventListeners();
-      addGenres(); //Genres event listeneres are added dinamically when created
+      //Genres event listeneres are added dinamically when created
+      addGenres();
+      //Add event listeners to each option of the year dropdown
       addYearEventListeners();
+      //Add event listeners to each option of the sort by dropdown
       addSortEventListeners();
-
       break;
 
     case "moviespage":

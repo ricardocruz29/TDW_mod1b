@@ -7,7 +7,7 @@
 }
 
 main {
-  grid-row: 2 / -1;
+  grid-column: 2 / 3;
   border-right: 1px solid rgba(234, 237, 240, 0.1);
 }
 
@@ -27,7 +27,9 @@ main {
 
 .carousel-inner {
   border-radius: 45px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: 200px 300px 1200px rgb(164, 22, 26, 0.15),
+    -200px 0px 5000px rgba(0, 68, 255, 0.3), rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 img {

@@ -15,10 +15,11 @@
     <link href="./CSS/style.css" rel="stylesheet" />
     <link href="CSS/menu.css" rel="stylesheet" />
     <link href="CSS/msa.css" rel="stylesheet" />
+    <link href="CSS/breakpoints.css" rel="stylesheet" />
     <title>CeMovies</title>
   </head>
   <body onload="main('moviespage')">
-    <div class="main" id="body">
+    <div class="everything" id="body">
       <!-- Nav is generated automatically in renderMenu.js
         <nav>
         </nav>
@@ -26,7 +27,7 @@
 
       <main class="movie-info-area">
         <img id="banner-img" class="banner-img" alt="banner image" />
-        <div>
+        <div class="movie-info">
           <h2 class="movie-name-header" id="movie-name-header"></h2>
           <div class="year_and_time" id="year_and_time">
             <p class="movie-year-time" id="movie-year"></p>
@@ -72,29 +73,28 @@
           >
             Watch Trailer
           </button>
-
-          <div class="similar-movies">
-            <h5>What to watch <span>next?</span></h5>
-            <div class="flex-similar-movies" id="flex-similar-movies"></div>
-          </div>
-          <!-- Modal -->
-          <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered modal-xl" id="modal">
-              <div class="modal-content">
-                <div class="modal-body" id="modal-body">
-                  <iframe
-                    class="video-frame"
-                    id="video-frame"
-                    alt="Video not found"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+        </div>
+        <div class="similar-movies">
+          <h5>What to watch <span>next?</span></h5>
+          <div class="flex-similar-movies" id="flex-similar-movies"></div>
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-xl" id="modal">
+            <div class="modal-content">
+              <div class="modal-body" id="modal-body">
+                <iframe
+                  class="video-frame"
+                  id="video-frame"
+                  alt="Video not found"
+                  allowfullscreen
+                ></iframe>
               </div>
             </div>
           </div>

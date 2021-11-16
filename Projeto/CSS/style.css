@@ -22,4 +22,18 @@ body {
   font-family: "Montserrat", sans-serif;
   color: #444;
   background-color: #16161d;
+  min-width: 769px;
+}
+
+.development {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.development h1 {
+  font-size: 64px;
+  letter-spacing: -3px;
+  color: #fff;
 }

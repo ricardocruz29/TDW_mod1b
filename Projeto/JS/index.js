@@ -1,5 +1,6 @@
 //Function that creates all bootstrap content to make a carousel.
 function loadRecommendedMovies() {
+  //API HAD RECCOMENDEDMOVIES BUT THEY WERE A BIT DUBIOUS, SO I JUST ADDED MANNUALLY 6 I LIKE
   let reccomendedMovies = [
     {
       movie_id: "497698",

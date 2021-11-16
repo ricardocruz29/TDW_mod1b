@@ -15,17 +15,21 @@
     <link href="./CSS/style.css" rel="stylesheet" />
     <link href="CSS/menu.css" rel="stylesheet" />
     <link href="CSS/msa.css" rel="stylesheet" />
+    <link href="CSS/breakpoints.css" rel="stylesheet" />
     <title>CeMovies</title>
   </head>
-  <body onload="main('series')">
-    <!-- <input type="text" placeholder="nome do filme" id="input_test" />
-    <button type="button" id="button_test">Test</button> -->
-    <div class="main" id="body">
-      <!-- GENERATED AUTOMATICALLY IN FILE renderMenu.js
+  <body onload="main('moviespage')">
+    <div class="everything" id="body">
+      <!-- Nav is generated automatically in renderMenu.js
         <nav>
         </nav>
       -->
-      <main></main>
+
+      <main>
+        <div class="development">
+          <h1>In development ...</h1>
+        </div>
+      </main>
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -35,6 +39,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="./JS/renderMenu.js"></script>
+    <script src="./JS/moviePage.js"></script>
+    <script src="./JS/APIfetch.js"></script>
     <script src="./JS/script.js" lang="javascript"></script>
   </body>
 </html>

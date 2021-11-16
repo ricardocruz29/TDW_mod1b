@@ -1,4 +1,5 @@
 //data retrieved from https://api.themoviedb.org/3/genre/movie/list?api_key=b19cb0f63912ae924e81e2d6962a5fba
+//Since genres don't usually change, decided to get them and here manually. Could also be stored on the local storage
 const genres = [
   {
     id: 28,
@@ -78,37 +79,10 @@ const genres = [
   },
 ];
 
-// const sorts = [
-//   { "Most Popular": "popularity.desc" },
-//   { "Most Recent": "release_date.desc" },
-//   { "Most Rating": "vote_average.desc" },
-//   { "A-Z": "original_title.asc" },
-//   { "Z-A": "original_title.desc" },
-//   // {
-//   //   sort_text: "Most Popular",
-//   //   sort_id: "popularity.desc",
-//   // },
-//   // {
-//   //   sort_text: "Most Recent",
-//   //   sort_id: "release_date.desc",
-//   // },
-//   // {
-//   //   sort_text: "Most Rating",
-//   //   sort_id: "vote_average.desc",
-//   // },
-//   // {
-//   //   sort_text: "A-Z",
-//   //   sort_id: "original_title.asc",
-//   // },
-//   // {
-//   //   sort_text: "Z-A",
-//   //   sort_id: "original_title.desc",
-//   // },
-// ];
-
+//This function is called from APIfetch.js, and for each movie it will render a card that contains the data (movieInfo)
 function renderMovieCard(data) {
+  //flex container that contains all movies
   const movies_flex = document.getElementById("movies-flex");
-  // movies_flex.innerHTML = "";
 
   let movie_card = document.createElement("div");
   movie_card.className = "movie-card";
@@ -133,7 +107,7 @@ function renderMovieCard(data) {
   const genres_div = document.createElement("div");
   genres_div.className = "genres_div";
   //in the data, genres come as id's. Run all the genres that come in data, and then in the const defined above,
-  //and check which are equal. This way we can get the genres of the movie
+  //and check which are equal. This way we can get the name of the genres of the movie
   for (let i = 0; i < data.genre_ids.length; i++) {
     for (let j = 0; j < genres.length; j++) {
       if (parseInt(data.genre_ids[i]) === parseInt(genres[j].id)) {
@@ -153,6 +127,7 @@ function renderMovieCard(data) {
   //render rating
   let movie_rating = document.createElement("div");
   movie_rating.className = "movie-card-rating";
+  //render the icon
   movie_rating.innerHTML =
     "<svg " +
     'xmlns="http://www.w3.org/2000/svg"' +
@@ -191,46 +166,25 @@ function renderMovieCard(data) {
 
 //add event listeners to the search by title
 function addSearchFilterEventListeners() {
+  //Search input doesn't work at the same time with other filters (API doesn't allow it)
   const search_input = document.getElementById("input-search-by-title");
-  const sort_default = document.getElementById("sort-default");
-  const year_default = document.getElementById("year-default");
-  const genre_default = document.getElementById("genre-default");
-  let year_active = document.querySelector(".year-active");
-  let genre_active = document.querySelector(".genre-active");
-  let sort_active = document.querySelector(".sort-active");
-  console.log(year_active);
 
   search_input.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
-      let year_active = document.querySelector(".year-active");
-      let genre_active = document.querySelector(".genre-active");
-      let sort_active = document.querySelector(".sort-active");
-      sort_active.classList.remove("sort-active");
-      year_active.classList.remove("year-active");
-      genre_active.classList.remove("genre-active");
-
-      sort_default.classList.add("sort-active");
-      year_default.classList.add("year-active");
-      genre_default.classList.add("genre-active");
-      getMoviesFiltered("search");
+      //This function, basically puts the dropdowns in default values (because this filters won't work together with the search input)
+      makeDropdownsDefault();
+      getMovies("search");
     }
   });
   const btn_search = document.getElementById("btn-search-by-title");
   btn_search.addEventListener("click", () => {
-    let year_active = document.querySelector(".year-active");
-    let genre_active = document.querySelector(".genre-active");
-    let sort_active = document.querySelector(".sort-active");
-    sort_active.classList.remove("sort-active");
-    year_active.classList.remove("year-active");
-    genre_active.classList.remove("genre-active");
-    sort_default.classList.add("sort-active");
-    year_default.classList.add("year-active");
-    genre_default.classList.add("genre-active");
-    getMoviesFiltered("search");
+    makeDropdownsDefault();
+    getMovies("search");
   });
 
+  //This event listener, happens the first time the user clicks on the search input, and inserts an alert that warns the user that search input doesn't work together with the other filters
   search_input.addEventListener("click", () => {
-    //if alert is null, it means the user already saw the warning. This way, the warning only appears the first time the user clicks to write the movie name
+    //if alert is null, it means the user already saw the warning and closed it. This way, the warning only appears the first time the user clicks to write the movie name
     if (alert !== null) {
       let alert = document.getElementById("alert");
       alert.style.display = "flex";
@@ -238,6 +192,7 @@ function addSearchFilterEventListeners() {
   });
 }
 
+//function that adds for each dropdown item, an event listener
 function addYearEventListeners() {
   const years = document.getElementById("ul-year").children;
   for (let i = 0; i < years.length; i++) {
@@ -247,8 +202,7 @@ function addYearEventListeners() {
       year_prev_active.classList.remove("year-active");
 
       event.target.classList.add("year-active");
-      console.log(event.target.classList);
-      getMoviesFiltered("secondarysearch");
+      getMovies("secondarysearch");
     });
   }
 }
@@ -260,12 +214,10 @@ function addSortEventListeners() {
       console.log("entrei");
       //get the previous active and remove its class
       let sort_prev_active = document.querySelector(".sort-active");
-      console.log(sort_prev_active);
       sort_prev_active.classList.remove("sort-active");
 
       event.target.classList.add("sort-active");
-      console.log(event.target.classList);
-      getMoviesFiltered("secondarysearch");
+      getMovies("secondarysearch");
     });
   }
 }
@@ -287,16 +239,32 @@ function addGenres() {
       genre_prev_active.classList.remove("genre-active");
 
       event.target.classList.add("genre-active");
-      console.log(event.target.classList);
-      getMoviesFiltered("secondarysearch");
+      getMovies("secondarysearch");
     });
     li.append(button_genre);
     ul_genres.append(li);
   }
 }
 
+//this function is called when the user enters in the movies Page.
 function clearFilters() {
   if (document.getElementById("input-search-by-title").value !== "") {
     document.getElementById("input-search-by-title").value = "";
   }
+}
+
+function makeDropdownsDefault() {
+  let year_active = document.querySelector(".year-active");
+  let genre_active = document.querySelector(".genre-active");
+  let sort_active = document.querySelector(".sort-active");
+  //get the default values of the dropdowns
+  let sort_default = document.getElementById("sort-default");
+  let year_default = document.getElementById("year-default");
+  let genre_default = document.getElementById("genre-default");
+  sort_active.classList.remove("sort-active");
+  year_active.classList.remove("year-active");
+  genre_active.classList.remove("genre-active");
+  sort_default.classList.add("sort-active");
+  year_default.classList.add("year-active");
+  genre_default.classList.add("genre-active");
 }

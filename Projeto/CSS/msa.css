@@ -1,33 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap");
 
-.main {
+.everything {
   display: grid;
   grid-template-columns: 300px 1fr;
   height: 100vh;
 }
 
-main {
-  grid-row: 2 / -1;
-}
-
 /* MOVIE PAGE */
 
 .movie-info-area {
-  width: 85%;
-  margin: 48px auto 0px auto;
+  width: 100%;
+  padding: 48px;
   border-radius: 45px;
 
   display: grid;
   grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: 45vh auto;
+
   gap: 64px;
 }
 
 .banner-img {
+  grid-column: 1 / 2;
+  grid-row: 1/ -1;
   width: 100%;
   min-width: 350px;
   height: auto;
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: 200px 300px 1200px rgb(164, 22, 26, 0.15),
+    -200px 0px 5000px rgba(0, 68, 255, 0.3), rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.movie-info {
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
+}
+
+.similar-movies {
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
 }
 
 .rating-div {
@@ -52,7 +64,7 @@ main {
 
 .movie-name-header {
   color: #fff;
-  font-size: 62px;
+  font-size: 48px;
   font-weight: 900;
   font-family: "Lato", sans-serif;
   letter-spacing: -2px;
@@ -99,7 +111,7 @@ main {
 
 .movie-description {
   color: #868e96;
-  max-width: 60ch;
+  max-width: 50ch;
   line-height: 1.4;
   margin-bottom: 20px;
   font-weight: 500;
@@ -133,6 +145,7 @@ main {
   gap: 12px;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .cast h6 {
@@ -197,16 +210,18 @@ main {
 .flex-similar-movies {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 5px;
 }
 
 .similar-movie-div {
   background-size: cover;
-  width: 15%;
-  height: 175px;
+  width: 17%;
+  height: 250px;
   display: flex;
   position: relative;
   filter: brightness(70%);
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .similar-movie-div:hover {
@@ -246,8 +261,8 @@ main {
   position: relative;
   cursor: pointer;
   border-radius: 45px;
-  box-shadow: 15px 0px 70px rgb(164, 22, 26, 0.6),
-    -15px 0px 50px rgba(0, 68, 255, 0.3), rgba(0, 0, 0, 0.19) 0px 10px 20px,
+  box-shadow: 200px 300px 1200px rgb(164, 22, 26, 0.15),
+    -200px 0px 100px rgba(0, 68, 255, 0.15), rgba(0, 0, 0, 0.19) 0px 10px 20px,
     rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
@@ -328,10 +343,11 @@ main {
   color: #868e96;
   font-size: 12px;
   font-weight: 600;
+  margin-bottom: 0;
 }
 
 .paginator {
-  width: 800px;
+  width: 100%;
   margin: 64px auto 24px auto;
   display: flex;
   justify-content: center;

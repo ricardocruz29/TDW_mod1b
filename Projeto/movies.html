@@ -26,15 +26,216 @@
         </nav>
       -->
       <main class="movies-section">
+        <div
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+          id="alert"
+          style="display: none"
+        >
+          <strong>Search by movie title </strong>&nbsp; can't be used together
+          with other filters
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
         <div class="movies-filters" classs="filters">
-          <form id="filters-form">
-            <input placeholder="Search ..." />
-            <input placeholder="year" />
-            <input placeholder="rating" />
-            <input placeholder="genres" />
-            <input placeholder="runtime" />
-            <input placeholder="crew" />
-          </form>
+          <div class="input-search-div">
+            <input
+              class="input-search"
+              id="input-search-by-title"
+              placeholder="Search by Title..."
+            />
+            <button type="button" id="btn-search-by-title" class="btn-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="search-icon"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="secondary-filters">
+            <div class="dropdown">
+              <button
+                class="btn btn-year dropdown-toggle"
+                type="button"
+                id="dropdown-year"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Year
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="dropdown-year"
+                id="ul-year"
+              >
+                <li>
+                  <button
+                    class="dropdown-item year-active"
+                    value="all"
+                    type="button"
+                    id="year-default"
+                  >
+                    All
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="2021" type="button">
+                    2021
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="2020" type="button">
+                    2020
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="2019" type="button">
+                    2019
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="2018" type="button">
+                    2018
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="2017" type="button">
+                    2017
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="2016" type="button">
+                    2016
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="2015-2010" type="button">
+                    2015-2010
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="2009-2000" type="button">
+                    2009-2000
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="1999-1980" type="button">
+                    1999-1980
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown-item" value="1979-1900" type="button">
+                    1979-1900
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div class="dropdown">
+              <button
+                class="btn btn-year dropdown-toggle"
+                type="button"
+                id="dropdown-genre"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Genre
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="dropdown-genre"
+                id="ul-genre"
+              >
+                <li>
+                  <button
+                    class="dropdown-item genre-active"
+                    value="-1"
+                    type="button"
+                    id="genre-default"
+                  >
+                    All
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div class="dropdown">
+              <button
+                class="btn btn-year dropdown-toggle"
+                type="button"
+                id="dropdown-sort"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sort By
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="dropdown-year"
+                id="ul-sort"
+              >
+                <li>
+                  <button
+                    class="dropdown-item sort-active"
+                    value="popularity.desc"
+                    type="button"
+                    id="sort-default"
+                  >
+                    Most Popular
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    class="dropdown-item"
+                    value="release_date.desc"
+                    type="button"
+                  >
+                    Most Recent
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="dropdown-item"
+                    value="vote_average.desc"
+                    type="button"
+                  >
+                    Most Rating
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="dropdown-item"
+                    value="original_title.asc"
+                    type="button"
+                  >
+                    A-Z
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="dropdown-item"
+                    value="original_title.desc"
+                    type="button"
+                  >
+                    Z-A
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="movies-flex" id="movies-flex"></div>
         <div class="paginator" id="paginator">

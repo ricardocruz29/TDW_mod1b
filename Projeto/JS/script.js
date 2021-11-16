@@ -16,10 +16,13 @@ function main(page) {
       //ANY FUNCTION CALLED HERE, IS DEFINED IN movie.js
       //on the load of the page, it will be page 1, so if nothig is passed to the function, it will retreive the first page as default
       //in this function, the whole paginator is going to be generated as well
+      clearFilters();
       getMovies();
 
-      const filters_form = document.getElementById("filters-form");
-      filters_form.addEventListener("submit", getMovies);
+      addSearchFilterEventListeners();
+      addGenres(); //Genres event listeneres are added dinamically when created
+      addYearEventListeners();
+      addSortEventListeners();
 
       break;
 

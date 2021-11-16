@@ -231,12 +231,6 @@ main {
   margin: 48px auto 24px auto;
 }
 
-.movies-filters {
-  margin-bottom: 64px;
-  background-color: red;
-  margin: 0px 48px 64px 48px;
-}
-
 .movies-flex {
   display: flex;
   justify-content: center;
@@ -395,4 +389,78 @@ main {
   font-size: 20px;
   color: #868e96;
   margin-bottom: 0;
+}
+
+.movies-filters {
+  margin-bottom: 64px;
+  margin: 0px 48px 64px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.secondary-filters {
+  display: flex;
+  gap: 20%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.input-search-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 12px 26px;
+  border: 1px solid #495057;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border-radius: 10px;
+}
+
+.input-search {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  font-weight: 500;
+}
+
+.btn-icon {
+  background-color: transparent;
+  border: none;
+}
+
+.search-icon {
+  width: 24px;
+  height: auto;
+  fill: #df383e;
+}
+
+.btn-year {
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border-radius: 10px;
+  font-weight: 500;
+  border: 1px solid #495057;
+  color: #fff;
+  outline: none;
+}
+
+.btn-year:hover {
+  color: #fff;
+}
+
+.dropdown-menu {
+  min-width: 90px;
+}
+
+.dropdown-item {
+  font-weight: 500 !important;
+}
+
+.dropdown-item.year-active,
+.dropdown-item.sort-active,
+.dropdown-item.genre-active {
+  color: #a4161a !important;
+  background-color: transparent !important;
 }

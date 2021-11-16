@@ -2,6 +2,7 @@ var CURRENT_PAGE = 1;
 var NEXT_PAGE = 2;
 var PREV_PAGE = 0;
 var TOTAL_PAGES;
+var TYPE;
 
 //function that changes the active number of paginator
 function changeNumberPaginator() {
@@ -42,8 +43,12 @@ function checkMinMax() {
 }
 
 //function that sets the number of total pages, that comes from the API endpoint, and then calls the function to add the pagniation numbers
-function renderPaginator(nr_total_pages) {
+function renderPaginator(nr_total_pages, type) {
   TOTAL_PAGES = nr_total_pages;
+  TYPE = type;
+  CURRENT_PAGE = 1;
+  NEXT_PAGE = 2;
+  PREV_PAGE = 0;
 
   //add the paginator numbers, and in this function it will be added their event listeners
   addPaginatorNumbers();
@@ -52,6 +57,7 @@ function renderPaginator(nr_total_pages) {
   //add events listeners to paginator numbers
   addEventsListeners();
   //the buttons are pre created, so we just add their event listeners
+
   addBtnsEventsListeners();
 }
 
@@ -63,6 +69,13 @@ function addPaginatorNumbers() {
 
   //If the it has more than 7 pages, do the normal way, else just had the number of total pages
   if (TOTAL_PAGES > 7) {
+    if (p_etc === null) {
+      let p_etc = document.createElement("p");
+      p_etc.className = "etc";
+      p_etc.id = "etc";
+      p_etc.textContent = "...";
+      paginator.insertBefore(p_etc, document.getElementById("btn-next"));
+    }
     for (let i = 0; i < 7; i++) {
       let a_number = document.createElement("a");
       a_number.className = "pag-number";
@@ -82,6 +95,9 @@ function addPaginatorNumbers() {
         }
         a_number.id = "pag-" + (i + 1).toString();
         a_number.textContent = (i + 1).toString();
+
+        //for the case it was null and then created
+        let p_etc = document.getElementById("etc");
         paginator.insertBefore(a_number, p_etc);
       }
     }
@@ -94,20 +110,22 @@ function addPaginatorNumbers() {
 
       a_number.id = "pag-" + TOTAL_PAGES;
       a_number.textContent = TOTAL_PAGES;
+      a_number.classList.add("last-number");
       paginator.insertBefore(a_number, btn_next);
 
       if (i === 0) {
         a_number.classList.add("number-active");
         a_number.classList.add("first-number");
       }
-      if (i === 6) {
-        a_number.classList.add("last-number");
-      }
+
       a_number.id = "pag-" + (i + 1).toString();
       a_number.textContent = (i + 1).toString();
-      paginator.insertBefore(a_number, p_etc);
+      paginator.insertBefore(a_number, document.getElementById("btn-next"));
     }
-    p_etc.remove();
+    //if there were only 7 pages, when we pressed enter, then p_etc already does not exist
+    if (p_etc !== null) {
+      p_etc.remove();
+    }
   }
 
   //makes the page go into the top
@@ -180,7 +198,11 @@ function addEventsListeners() {
       const movies_flex = document.getElementById("movies-flex");
       movies_flex.innerHTML = "";
 
-      getMovies(CURRENT_PAGE);
+      if (TYPE === "all") {
+        getMovies(CURRENT_PAGE);
+      } else if (TYPE === "search" || TYPE === "secondarysearch") {
+        getMoviesFiltered(TYPE, CURRENT_PAGE);
+      }
     });
   }
 }
@@ -190,71 +212,94 @@ function addBtnsEventsListeners() {
   //add event listeners to the icons buttons next and previous in paginator
   const paginator_buttons = document.querySelectorAll(".btn-pn");
   for (let i = 0; i < paginator_buttons.length; i++) {
-    paginator_buttons[i].addEventListener("click", () => {
-      //getting the <a> element that has the class number-active
-      // let element_currentPage =
-      //   document.getElementsByClassName("number-active");
-      // //the id of the <a> elemtn has id for example = pag-3
-      // //parseInt because the id comes in as a string
-      // let page = parseInt(element_currentPage[0].id.split("-")[1]);
-
-      if (paginator_buttons[i].id === "btn-previous") {
-        //function defined in paginator.js
-        //If the page clicked, is the first page that appears in the paginator
-
-        CURRENT_PAGE = PREV_PAGE;
-        //change the number active to the correct one
-
-        if (isFirstPage()) {
-          //delete all the numbers in the paginator, and render the new ones
-          //We had 6 7 8 9 10 11 -> delete all (6 has to be deleted so it won't accumulate event listeners)
-          //We now have 1 2 3 4 5 6 -> remder all new numbers
-          deleteNextNumbers();
-          if (CURRENT_PAGE === TOTAL_PAGES - 7) {
-            if (document.getElementById("etc") === null) {
-              let p_etc = document.createElement("p");
-              p_etc.className = "etc";
-              p_etc.id = "etc";
-              p_etc.textContent = "...";
-              paginator.insertBefore(
-                p_etc,
-                document.getElementById("btn-next")
-              );
-            }
-          }
-
-          renderPrevNumbers();
-        }
-        changeNumberPaginator();
-        //get movies for the page the user is
-        getMovies(CURRENT_PAGE);
-
-        //UPDATE PREVIOUS PAGE AND NEXT PAGE
-        PREV_PAGE -= 1;
-        NEXT_PAGE = CURRENT_PAGE + 1;
-      } else if (paginator_buttons[i].id === "btn-next") {
-        CURRENT_PAGE = NEXT_PAGE;
-
-        //function defined in paginator.js
-        if (isLastPage()) {
-          if (CURRENT_PAGE !== TOTAL_PAGES) {
-            deletePrevNumbers();
-
-            renderNextNumbers();
-          }
-        }
-        changeNumberPaginator();
-        getMovies(CURRENT_PAGE);
-
-        NEXT_PAGE += 1;
-        PREV_PAGE = CURRENT_PAGE - 1;
-      }
-      /*when a paginator_button is clicked, remove all the movies in the flex container
-      So it is able to add the new 20 */
-      const movies_flex = document.getElementById("movies-flex");
-      movies_flex.innerHTML = "";
-    });
+    paginator_buttons[i].addEventListener("click", test);
   }
+}
+
+function test() {
+  //getting the <a> element that has the class number-active
+  // let element_currentPage =
+  //   document.getElementsByClassName("number-active");
+  // //the id of the <a> elemtn has id for example = pag-3
+  // //parseInt because the id comes in as a string
+  // let page = parseInt(element_currentPage[0].id.split("-")[1]);
+  console.log(this);
+
+  if (this.id === "btn-previous") {
+    //function defined in paginator.js
+    //If the page clicked, is the first page that appears in the paginator
+    console.log("current_page " + CURRENT_PAGE);
+    console.log("prev_page " + PREV_PAGE);
+    console.log("next_page " + NEXT_PAGE);
+
+    CURRENT_PAGE = PREV_PAGE;
+    //change the number active to the correct one
+
+    if (isFirstPage()) {
+      //delete all the numbers in the paginator, and render the new ones
+      //We had 6 7 8 9 10 11 -> delete all (6 has to be deleted so it won't accumulate event listeners)
+      //We now have 1 2 3 4 5 6 -> remder all new numbers
+      deleteNextNumbers();
+      if (CURRENT_PAGE === TOTAL_PAGES - 7) {
+        if (document.getElementById("etc") === null) {
+          let p_etc = document.createElement("p");
+          p_etc.className = "etc";
+          p_etc.id = "etc";
+          p_etc.textContent = "...";
+          paginator.insertBefore(p_etc, document.getElementById("btn-next"));
+        }
+      }
+
+      renderPrevNumbers();
+    }
+    changeNumberPaginator();
+    //get movies for the page the user is
+    if (TYPE === "all") {
+      getMovies(CURRENT_PAGE);
+    } else if (TYPE === "search" || TYPE === "secondarysearch") {
+      getMoviesFiltered(TYPE, CURRENT_PAGE);
+    }
+
+    //UPDATE PREVIOUS PAGE AND NEXT PAGE
+    PREV_PAGE -= 1;
+    NEXT_PAGE = CURRENT_PAGE + 1;
+    console.log("current_page " + CURRENT_PAGE);
+    console.log("prev_page " + PREV_PAGE);
+    console.log("next_page " + NEXT_PAGE);
+    console.log("--------------------");
+  } else if (this.id === "btn-next") {
+    console.log("current_page " + CURRENT_PAGE);
+    console.log("prev_page " + PREV_PAGE);
+    console.log("next_page " + NEXT_PAGE);
+    CURRENT_PAGE = NEXT_PAGE;
+
+    //function defined in paginator.js
+    if (isLastPage()) {
+      if (CURRENT_PAGE !== TOTAL_PAGES) {
+        deletePrevNumbers();
+
+        renderNextNumbers();
+      }
+    }
+    changeNumberPaginator();
+    if (TYPE === "all") {
+      getMovies(CURRENT_PAGE);
+    } else if (TYPE === "search" || TYPE === "secondarysearch") {
+      getMoviesFiltered(TYPE, CURRENT_PAGE);
+    }
+
+    NEXT_PAGE += 1;
+    PREV_PAGE = CURRENT_PAGE - 1;
+    console.log("current_page " + CURRENT_PAGE);
+    console.log("prev_page " + PREV_PAGE);
+    console.log("next_page " + NEXT_PAGE);
+
+    console.log("--------------------");
+  }
+  /*when a paginator_button is clicked, remove all the movies in the flex container
+      So it is able to add the new 20 */
+  const movies_flex = document.getElementById("movies-flex");
+  movies_flex.innerHTML = "";
 }
 
 //Function that checks if the page clicked, is the last page in the paginator before "..."

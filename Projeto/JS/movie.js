@@ -78,6 +78,34 @@ const genres = [
   },
 ];
 
+// const sorts = [
+//   { "Most Popular": "popularity.desc" },
+//   { "Most Recent": "release_date.desc" },
+//   { "Most Rating": "vote_average.desc" },
+//   { "A-Z": "original_title.asc" },
+//   { "Z-A": "original_title.desc" },
+//   // {
+//   //   sort_text: "Most Popular",
+//   //   sort_id: "popularity.desc",
+//   // },
+//   // {
+//   //   sort_text: "Most Recent",
+//   //   sort_id: "release_date.desc",
+//   // },
+//   // {
+//   //   sort_text: "Most Rating",
+//   //   sort_id: "vote_average.desc",
+//   // },
+//   // {
+//   //   sort_text: "A-Z",
+//   //   sort_id: "original_title.asc",
+//   // },
+//   // {
+//   //   sort_text: "Z-A",
+//   //   sort_id: "original_title.desc",
+//   // },
+// ];
+
 function renderMovieCard(data) {
   const movies_flex = document.getElementById("movies-flex");
   // movies_flex.innerHTML = "";
@@ -159,4 +187,116 @@ function renderMovieCard(data) {
   movie_card.append(movie_info);
   //add movie card to the flex container
   movies_flex.append(movie_card);
+}
+
+//add event listeners to the search by title
+function addSearchFilterEventListeners() {
+  const search_input = document.getElementById("input-search-by-title");
+  const sort_default = document.getElementById("sort-default");
+  const year_default = document.getElementById("year-default");
+  const genre_default = document.getElementById("genre-default");
+  let year_active = document.querySelector(".year-active");
+  let genre_active = document.querySelector(".genre-active");
+  let sort_active = document.querySelector(".sort-active");
+  console.log(year_active);
+
+  search_input.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      let year_active = document.querySelector(".year-active");
+      let genre_active = document.querySelector(".genre-active");
+      let sort_active = document.querySelector(".sort-active");
+      sort_active.classList.remove("sort-active");
+      year_active.classList.remove("year-active");
+      genre_active.classList.remove("genre-active");
+
+      sort_default.classList.add("sort-active");
+      year_default.classList.add("year-active");
+      genre_default.classList.add("genre-active");
+      getMoviesFiltered("search");
+    }
+  });
+  const btn_search = document.getElementById("btn-search-by-title");
+  btn_search.addEventListener("click", () => {
+    let year_active = document.querySelector(".year-active");
+    let genre_active = document.querySelector(".genre-active");
+    let sort_active = document.querySelector(".sort-active");
+    sort_active.classList.remove("sort-active");
+    year_active.classList.remove("year-active");
+    genre_active.classList.remove("genre-active");
+    sort_default.classList.add("sort-active");
+    year_default.classList.add("year-active");
+    genre_default.classList.add("genre-active");
+    getMoviesFiltered("search");
+  });
+
+  search_input.addEventListener("click", () => {
+    //if alert is null, it means the user already saw the warning. This way, the warning only appears the first time the user clicks to write the movie name
+    if (alert !== null) {
+      let alert = document.getElementById("alert");
+      alert.style.display = "flex";
+    }
+  });
+}
+
+function addYearEventListeners() {
+  const years = document.getElementById("ul-year").children;
+  for (let i = 0; i < years.length; i++) {
+    years[i].addEventListener("click", (event) => {
+      //get the previous active and remove its class
+      let year_prev_active = document.querySelector(".year-active");
+      year_prev_active.classList.remove("year-active");
+
+      event.target.classList.add("year-active");
+      console.log(event.target.classList);
+      getMoviesFiltered("secondarysearch");
+    });
+  }
+}
+
+function addSortEventListeners() {
+  const sorts = document.getElementById("ul-sort").children;
+  for (let i = 0; i < sorts.length; i++) {
+    sorts[i].addEventListener("click", (event) => {
+      console.log("entrei");
+      //get the previous active and remove its class
+      let sort_prev_active = document.querySelector(".sort-active");
+      console.log(sort_prev_active);
+      sort_prev_active.classList.remove("sort-active");
+
+      event.target.classList.add("sort-active");
+      console.log(event.target.classList);
+      getMoviesFiltered("secondarysearch");
+    });
+  }
+}
+
+//function to add genres to the dropdown
+function addGenres() {
+  const ul_genres = document.getElementById("ul-genre");
+  for (let i = 0; i < genres.length; i++) {
+    let li = document.createElement("li");
+    let button_genre = document.createElement("button");
+    button_genre.className = "dropdown-item";
+    button_genre.type = "button";
+    button_genre.textContent = genres[i].name;
+    button_genre.value = genres[i].id;
+
+    button_genre.addEventListener("click", (event) => {
+      //get the previous active and remove its class
+      let genre_prev_active = document.querySelector(".genre-active");
+      genre_prev_active.classList.remove("genre-active");
+
+      event.target.classList.add("genre-active");
+      console.log(event.target.classList);
+      getMoviesFiltered("secondarysearch");
+    });
+    li.append(button_genre);
+    ul_genres.append(li);
+  }
+}
+
+function clearFilters() {
+  if (document.getElementById("input-search-by-title").value !== "") {
+    document.getElementById("input-search-by-title").value = "";
+  }
 }

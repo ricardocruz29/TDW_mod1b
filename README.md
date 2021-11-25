@@ -30,4 +30,8 @@
 
 ## Projeto
 
-Token yt: AIzaSyBPZCKHPIsqNv5AJZ7Na3GUbJ1kgZtsKqM
+- To access the mini-project done, https://ricardocruz29.github.io/TDW_mod1b/Projeto
+
+# THIS CLASSROOM CONTINUES TO TDW_MOD2A:
+
+## https://gitlab.com/ricardocruz29/tdw-m2-ricardocruz
